@@ -1,7 +1,8 @@
 // TODO: Include packages needed for this application
 const fs = require('fs')
 const generateMarkdown = require('./utils/generateMarkdown')
-const inquirer = require('inquirer')
+const inquirer = require('inquirer');
+const { default: Choices } = require('inquirer/lib/objects/choices');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -11,7 +12,7 @@ const questions = [
   'Please write a short description of your project:',
   'What kind of license should your project have?',
   'What command should be run to install dependencies?',
-  'What comman should be run to run tests?',
+  'What command should be run to run tests?',
   'What does the user need to know about using the repo?',
   'What does the user need to know about contributing to the repo?'
 ];
@@ -20,7 +21,7 @@ const questions = [
 function writeToFile(fileName, data) {
   const markdown = generateMarkdown(data)
   
-  fs.appendFile(fileName, markdown, (err) =>
+  fs.writeFile(fileName, markdown, (err) =>
     err ? console.log(err) : console.log('Success!')
   )
 }
@@ -38,6 +39,44 @@ function init() {
       type: 'input',
       message: 'What is your email address?',
       name: 'email',
+    },
+    {
+      type: 'input',
+      message: 'What is your project name?',
+      name: 'title',
+    },
+    {
+      type: 'input',
+      message: 'Please write a short description of your project:',
+      name: 'description',
+    },
+    {
+      type: 'list',
+      message: 'What kind of license should your project have?',
+      choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'None'],
+      name: 'license',
+    },
+    {
+      type: 'input',
+      message: 'What command should be run to install dependencies?',
+      name: 'dependencies',
+      default: 'npm i',
+    },
+    {
+      type: 'input',
+      message: 'What command should be run to run tests?',
+      name: 'tests',
+      default: 'npm test'
+    },
+    {
+      type: 'input',
+      message: 'What does the user need to know about using the repo?',
+      name: 'useage',
+    },
+    {
+      type: 'input',
+      message: 'What does the user need to know about contributing to the repo?',
+      name: 'contributing',
     }
   ])
   .then((data) => {
