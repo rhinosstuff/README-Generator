@@ -1,19 +1,40 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
+// Creates a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {
+  if (license !== 'None') {
+    license = `![Static Badge](https://img.shields.io/badge/license-${license.split(' ').join('_')}-blue.svg)`
+  } else {
+    license = ''
+  }
+  return license
+}
 
-// TODO: Create a function that returns the license link
+// Creates a license link, in the "Table of Contents" section of README
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  let link = ''
+  if (license !== 'None') {
+    link = '* [License](#license)'
+  }
+  return link
+}
 
-// TODO: Create a function that returns the license section of README
+// Creates content for the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license !== 'None') {
+    license = `This project is licensed under the **${license}** license.`
+  } else {
+    license = ''
+  }
+  return license
+}
 
-// TODO: Create a function to generate markdown for README
+// Creates a function to generate markdown for README
 function generateMarkdown(data) {
   return `
   # ${data.title}
+  ${renderLicenseBadge(data.license)}
 
   ## Description
   ${data.description}
@@ -21,35 +42,37 @@ function generateMarkdown(data) {
   ## Table of Contents 
   * [Installation](#installation)
   * [Usage](#usage)
-  * [License](#license)
+  ${renderLicenseLink(data.license)}
   * [Contributing](#contributing)
   * [Tests](#tests)
   * [Questions](#questions)
 
   ## Installation
   To install necessary dependencies, run the following command:
-  
-        ${data.dependencies}
-  
+  \`\`\`
+  ${data.dependencies}
+  \`\`\`
   ## Usage
   ${data.useage} 
 
   ## License
-  This project is licensed under the **${data.license}** license.
+  ${renderLicenseSection(data.license)}
 
   ## Contributing
   ${data.contributing}
 
   ## Tests
   To run tests, run the following command:
-      
-        ${data.tests}
-
+  \`\`\`    
+  ${data.tests}
+  \`\`\`
   ## Questions
   If you have any questions about the repo, open an issue or contact me directly at **${data.email}**.
   
   You can explore my other projects on GitHub **[${data.username}](https://github.com/${data.username})**.
-  `;
+  
+  `
 }
 
-module.exports = generateMarkdown;
+// Makes the generateMarkdown.js file accesible by the require method
+module.exports = generateMarkdown
