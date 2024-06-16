@@ -15,7 +15,7 @@ const questions = [
   'What command should be run to run tests?',
   'What does the user need to know about using the repo?',
   'What does the user need to know about contributing to the repo?'
-];
+]
 
 // Creates & writes to a README.md file
 function writeToFile(fileName, data) {
@@ -80,7 +80,7 @@ function init() {
     }
   ])
   .then((data) => {
-    const filename = 'README.md'
+    const filename = 'generatedREADME.md'
     writeToFile(filename, data)
   })  
 }
