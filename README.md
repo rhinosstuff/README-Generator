@@ -1,6 +1,6 @@
 
   # Node.JS
-  ![Static Badge](https://img.shields.io/badge/license-MIT-blue.svg)
+  [![Static Badge](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
   ## Description
   This is my 09-Challenge. In this challenge we were again given starter code with basic skeleton functions laid out. It was my job to fill in all the code for the functions and have them work together. I felt like this challenge was pretty straight forward, simple and fun! I learned how to use npm & inquirer a bit better, also learned to impliment markdown a little more.
