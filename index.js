@@ -4,18 +4,18 @@ const inquirer = require('inquirer')
 const generateMarkdown = require('./utils/generateMarkdown')
 
 
-// Creates an array of questions for user input
-const questions = [
-  'What is your GitHub username?',
-  'What is your email address?',
-  'What is your project name?',
-  'Please write a short description of your project:',
-  'What kind of license should your project have?',
-  'What command should be run to install dependencies?',
-  'What command should be run to run tests?',
-  'What does the user need to know about using the repo?',
-  'What does the user need to know about contributing to the repo?'
-]
+// Creates an object of questions for user input
+const questions = {
+  username: 'What is your GitHub username?',
+  email: 'What is your email address?',
+  projectName: 'What is your project name?',
+  description: 'Please write a short description of your project:',
+  license: 'What kind of license should your project have?',
+  installCommand: 'What command should be run to install dependencies?',
+  testCommand: 'What command should be run to run tests?',
+  usageInfo: 'What does the user need to know about using the repo?',
+  contributingInfo: 'What does the user need to know about contributing to the repo?'
+}
 
 // Creates & writes to a README.md file
 function writeToFile(fileName, data) {
@@ -32,51 +32,51 @@ function init() {
   .prompt([
     {
       type: 'input',
-      message: 'What is your GitHub username?',
+      message: questions.username,
       name: 'username',
     },
     {
       type: 'input',
-      message: 'What is your email address?',
+      message: questions.email,
       name: 'email',
     },
     {
       type: 'input',
-      message: 'What is your project name?',
-      name: 'title',
+      message: questions.projectName,
+      name: 'projectName',
     },
     {
       type: 'input',
-      message: 'Please write a short description of your project:',
+      message: questions.description,
       name: 'description',
     },
     {
       type: 'list',
-      message: 'What kind of license should your project have?',
+      message: questions.license,
       choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'None'],
       name: 'license',
     },
     {
       type: 'input',
-      message: 'What command should be run to install dependencies?',
-      name: 'dependencies',
+      message: questions.installCommand,
+      name: 'installCommand',
       default: 'npm i',
     },
     {
       type: 'input',
-      message: 'What command should be run to run tests?',
-      name: 'tests',
+      message: questions.testCommand,
+      name: 'testCommand',
       default: 'npm test'
     },
     {
       type: 'input',
-      message: 'What does the user need to know about using the repo?',
-      name: 'useage',
+      message: questions.usageInfo,
+      name: 'usageInfo',
     },
     {
       type: 'input',
-      message: 'What does the user need to know about contributing to the repo?',
-      name: 'contributing',
+      message: questions.contributingInfo,
+      name: 'contributingInfo',
     }
   ])
   .then((data) => {
