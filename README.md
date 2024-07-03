@@ -1,5 +1,5 @@
 
-  # Readme-Generator
+  # README-Generator
   [![Static Badge](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
   ## Description
