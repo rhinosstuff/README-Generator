@@ -19,7 +19,9 @@
   npm i
   ```
   ## Usage
-  To use this application, start by installing the dependencies using ***"npm i"***, then type ***"node index.js"*** into the terminal to run the application. You will be prompted by a series of questions, simply fill in the information and a generatedREADME.md will be created. 
+  To start the app, run the following command:
+  >`node index.js`  
+  >You will be prompted by a series of questions, simply fill in the information and a generatedREADME.md will be created. 
 
   ## License
   This project is licensed under the **[MIT](./LICENSE)** license.

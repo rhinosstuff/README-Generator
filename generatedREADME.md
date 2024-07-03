@@ -1,9 +1,9 @@
 
-  # Node.JS
+  # Note-Taker
   [![Static Badge](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
   ## Description
-  Hope this works.
+  The user will be able to add and delete simple notes for keeping track of tasks.
 
   ## Table of Contents 
   * [Installation](#installation)
@@ -19,7 +19,7 @@
   npm i
   ```
   ## Usage
-  Plug and play baby! 
+  In the terminal run node server.js 
 
   ## License
   This project is licensed under the **[MIT](./LICENSE)** license.
@@ -30,7 +30,7 @@
   ## Tests
   To run tests, run the following command:
   ```    
-  npm test
+  N/A
   ```
   ## Questions
   If you have any questions about the repo, open an issue or contact me directly at **rhinosstuff@gmail.com**.
