@@ -1,5 +1,5 @@
 
-  # Node.JS
+  # Readme-Generator
   [![Static Badge](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
   ## Description
